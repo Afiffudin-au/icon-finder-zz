@@ -1,8 +1,14 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useGetCatagory } from '../../useCatagory/useGetCatagory'
+import { useGetStyleIdentifier } from '../../useStyleIdentifier/useGetStyleIdentifier'
+import CatagoriesDropDownItem from './CatagoriesDropDownItem/CatagoriesDropDownItem'
 import './Navbar.scss'
 import NavbarSearch from './NavbarSearch/NavbarSearch'
+import StyleDropDownItem from './StyleDropDownItem/StyleDropDownItem'
 function Navbar() {
+  const {getCatagory,dataCatagory} = useGetCatagory()
+  const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
   const handleScroll = ()=>{
     const navbar = document.querySelector(".navbar")
     const inputSearch = document.querySelector('.navbar input')
@@ -14,6 +20,10 @@ function Navbar() {
       navbar.classList.remove('scroll')
     }
   }
+  useEffect(()=>{
+    getCatagory()
+    getStyleIdentifier()
+  },[])
   useEffect(()=>{
     window.addEventListener("scroll", handleScroll);
     return ()=>{
@@ -42,9 +52,11 @@ function Navbar() {
               Catagories
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link to="/" className="dropdown-item">
-                Arts & multimedia
-              </Link>
+              {
+                dataCatagory?.categories?.map((item,index)=>(
+                  <CatagoriesDropDownItem key={index} Catagoryidentifier={item.identifier}/>
+                ))
+              }
             </div>
           </li>
           <li className="nav-item dropdown">
@@ -52,9 +64,12 @@ function Navbar() {
               Styles
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link to="/" className="dropdown-item">
-                Outlined
-              </Link>
+              {
+                dataStyles?.styles?.map((item,index)=>(
+                  <StyleDropDownItem key={index} styleIdentifier={item.identifier}/>
+                ))
+              }
+              
             </div>
           </li>
         </ul>

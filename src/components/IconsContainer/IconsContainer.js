@@ -41,9 +41,8 @@ function IconSets() {
     setPage(0)
   },[valueNav])
   useEffect(()=>{
-    getAllIcons(0)
+    // getAllIcons(0)
   },[])
-  console.log(page)
   return (
     <div className="IconsContainer">
         <BottomNavigation

@@ -1,7 +1,6 @@
 import Axios from 'axios'
 import { useDispatch } from 'react-redux'
 import {addAllIcon} from '../features/iconSlice'
-const key = 'X0vjEUN6KRlxbp2DoUkyHeM0VOmxY91rA6BbU5j3Xu6wDodwS0McmilLPBWDUcJ1'
 export function useGetIcons(){
   const dispatch = useDispatch()
   const getAllIcons = (valueOffset,premiumVal,vectorVal)=>{
@@ -12,7 +11,7 @@ export function useGetIcons(){
       method : 'GET',
       url : 'http://localhost:5000/icons/search',
       headers:{
-        Authorization : `Bearer ${key}`
+        Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
       },
       params : {query : 'abstract',count : 100,catagory : 'abstract',offset : valueOffset,premium : premiumVal,vector : vectorVal}
     }).then(res=>{
