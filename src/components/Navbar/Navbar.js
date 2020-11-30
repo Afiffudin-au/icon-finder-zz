@@ -1,15 +1,15 @@
 import React, {useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { useGetCatagory } from '../../useCatagory/useGetCatagory'
+import { useGetCatagoryIdentifier } from '../../useCatagoryIdentifier/useGetCatagoryIdentifier'
 import { useGetStyleIdentifier } from '../../useStyleIdentifier/useGetStyleIdentifier'
 import CatagoriesDropDownItem from './CatagoriesDropDownItem/CatagoriesDropDownItem'
 import './Navbar.scss'
 import NavbarSearch from './NavbarSearch/NavbarSearch'
 import StyleDropDownItem from './StyleDropDownItem/StyleDropDownItem'
 function Navbar() {
-  const {getCatagory,dataCatagory} = useGetCatagory()
+  const {getCatagoryIdentifier,dataCatagory} = useGetCatagoryIdentifier()
   const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
-  const refGetCatagory= useRef(getCatagory)
+  const refGetCatagoryIdentifier= useRef(getCatagoryIdentifier)
   const refGetStyleIdentifier = useRef(getStyleIdentifier)
   const handleScroll = ()=>{
     const navbar = document.querySelector(".navbar")
@@ -23,8 +23,8 @@ function Navbar() {
     }
   }
   useEffect(()=>{
-    refGetStyleIdentifier.current()
-    refGetCatagory.current()
+    // refGetStyleIdentifier.current()
+    refGetCatagoryIdentifier.current()
   },[])
   useEffect(()=>{
     window.addEventListener("scroll", handleScroll);
@@ -56,7 +56,7 @@ function Navbar() {
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {
                 dataCatagory?.categories?.map((item,index)=>(
-                  <CatagoriesDropDownItem key={index} Catagoryidentifier={item.identifier}/>
+                  <CatagoriesDropDownItem key={index} Catagoryidentifier={item.identifier} name={item.name}/>
                 ))
               }
             </div>
@@ -68,7 +68,7 @@ function Navbar() {
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {
                 dataStyles?.styles?.map((item,index)=>(
-                  <StyleDropDownItem key={index} styleIdentifier={item.identifier}/>
+                  <StyleDropDownItem key={index} styleIdentifier={item.identifier} name={item.name}/>
                 ))
               }
               

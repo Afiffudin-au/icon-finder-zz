@@ -1,0 +1,40 @@
+import Axios from "axios"
+import { useDispatch } from "react-redux"
+import {addIconCatagory} from '../features/iconSlice'
+export function useGetIconCatagory(){
+  const dispatch = useDispatch()
+  const GetIconCatagory = (catagory,style,offsetPage)=>{
+    const afterSplit = catagory.split('-')
+    const queryName = afterSplit[0]
+    dispatch(addIconCatagory({
+      loading :true
+    }))
+    Axios({
+      method : 'GET',
+      url : 'http://localhost:5000/icons/search',
+      headers:{
+        Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
+      },
+      params : {
+        query : queryName,
+        count : 100,
+        category : catagory,
+        style : style,
+        offset : offsetPage
+      }
+    }).then(res=>{
+      dispatch(addIconCatagory({
+        loading : false,
+        dataIconCatagory : res.data
+      }))
+    }).catch(err=>{
+      dispatch(addIconCatagory({
+        loading :false
+      }))
+      alert(err)
+    })
+  }
+  return{
+    GetIconCatagory
+  }
+}

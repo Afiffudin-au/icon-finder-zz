@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './IconsContainer.scss'
+import './IconContainer.scss'
 import { useGetIcons } from '../../useIcons/useGetIcons'
 import { useSelector } from 'react-redux'
 import { selectAllIconBlock } from '../../features/iconSlice'
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     width: 500,
   },
 });
-function IconSets() {
+function IconContainer() {
   const [page, setPage] = useState(0)
   const [valueNav, setValueNav] = React.useState(0);
   const allIconBlock = useSelector(selectAllIconBlock)
@@ -39,10 +39,10 @@ function IconSets() {
     }
   };
   useEffect(()=>{
-    setPage(0)
+    // setPage(0)
   },[valueNav])
   useEffect(()=>{
-    refGetAllIcons.current(0)
+    // refGetAllIcons.current(0)
   },[])
   return (
     <div className="IconsContainer">
@@ -68,7 +68,7 @@ function IconSets() {
       <div className="IconsContainer__grid">
         {
           allIcons.icons?.map((item,index)=>(
-            <CardIcon 
+            <CardIcon
             key={item.icon_id}
             id={item.icon_id}
             isPremium={item.is_premium}
@@ -86,4 +86,4 @@ function IconSets() {
   )
 }
 
-export default IconSets
+export default IconContainer

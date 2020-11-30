@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-function StyleDropDownItem({styleIdentifier}) {
+function StyleDropDownItem({styleIdentifier,name}) {
   return (
     <Link to="/" className="dropdown-item">
       {styleIdentifier}

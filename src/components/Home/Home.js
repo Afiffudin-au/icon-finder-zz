@@ -1,13 +1,11 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
 import Banner from '../Banner/Banner'
-import IconsContainer from '../IconsContainer/IconsContainer'
+import IconContainer from '../IconContainer/IconContainer'
 function Home() {
   return (
     <>
-      <Navbar/>
       <Banner/>
-      <IconsContainer/>
+      <IconContainer/>
     </>
   )
 }

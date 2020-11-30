@@ -3,7 +3,7 @@ import './CardIcon.scss'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import {blueGrey} from '@material-ui/core/colors';
 import LazyLoad from 'react-lazyload';
-function CardIconSet({id,isPremium,rasterSizes}) {
+function CardIcon({id,isPremium,rasterSizes}) {
   return (
     <div className="CardIcon">
       {
@@ -16,4 +16,4 @@ function CardIconSet({id,isPremium,rasterSizes}) {
   )
 }
 
-export default CardIconSet
+export default CardIcon

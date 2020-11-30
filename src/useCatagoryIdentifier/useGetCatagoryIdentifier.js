@@ -1,8 +1,8 @@
 import Axios from 'axios'
 import { useState } from 'react'
-export function useGetCatagory(){
+export function useGetCatagoryIdentifier(){
   const [dataCatagory,setDataCatagory] = useState([])
-  const getCatagory = ()=>{
+  const getCatagoryIdentifier = ()=>{
     Axios({
       method : 'GET',
       url : 'http://localhost:5000/categories',
@@ -17,7 +17,7 @@ export function useGetCatagory(){
     })
   }
   return{
-    getCatagory,
+    getCatagoryIdentifier,
     dataCatagory
   }
 }
