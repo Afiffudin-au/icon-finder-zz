@@ -1,0 +1,56 @@
+.navbar{
+  font-family: sans-serif;
+  position: sticky;
+  top: 0;
+  padding: 20px;
+  z-index: 2;
+  .navbar-nav{
+    .nav-item{
+      margin-right: 10px;
+      .nav-link{
+        font-size: 16px;
+        color: rgb(82, 82, 82);
+      }
+      .dropdown-menu{
+        background-color: #263238;
+        .dropdown-item{
+          color: white;
+        }
+        .dropdown-item:hover{
+          background-image: none;
+          background-color: #37474f;
+        }
+      }
+    }
+  }
+}
+.scroll{
+  transition:all .5s ease;
+  background-color: #212121 !important;
+  .navbar-nav{
+    .nav-item{
+      .nav-link{
+        color: #8ca1b4;
+      }
+      .dropdown-menu{
+        background-color: #263238;
+        .dropdown-item{
+          color :#8ca1b4;
+        }
+        .dropdown-item:hover{
+          background-image: none;
+          background-color: #37474f;
+        }
+      }
+    }
+  }
+}
+.inputSearchColor{
+  background-color: #455a64 !important;
+  color: white !important;
+  &::placeholder{
+    color: #92a9b4;
+  }
+  border: none;
+  outline: 0;
+}
