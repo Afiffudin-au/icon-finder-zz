@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './IconsContainer.scss'
 import { useGetIcons } from '../../useIcons/useGetIcons'
 import { useSelector } from 'react-redux'
@@ -25,6 +25,7 @@ function IconSets() {
   const {getAllIcons} = useGetIcons()
   const {loading} = allIconBlock
   const {allIcons} = allIconBlock
+  const refGetAllIcons = useRef(getAllIcons)
   const handleChange =  (event, value) => {
     setPage(value)
     if(valueNav === 0){
@@ -41,7 +42,7 @@ function IconSets() {
     setPage(0)
   },[valueNav])
   useEffect(()=>{
-    // getAllIcons(0)
+    refGetAllIcons.current(0)
   },[])
   return (
     <div className="IconsContainer">

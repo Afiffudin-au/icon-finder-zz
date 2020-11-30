@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useGetCatagory } from '../../useCatagory/useGetCatagory'
 import { useGetStyleIdentifier } from '../../useStyleIdentifier/useGetStyleIdentifier'
@@ -9,6 +9,8 @@ import StyleDropDownItem from './StyleDropDownItem/StyleDropDownItem'
 function Navbar() {
   const {getCatagory,dataCatagory} = useGetCatagory()
   const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
+  const refGetCatagory= useRef(getCatagory)
+  const refGetStyleIdentifier = useRef(getStyleIdentifier)
   const handleScroll = ()=>{
     const navbar = document.querySelector(".navbar")
     const inputSearch = document.querySelector('.navbar input')
@@ -21,8 +23,8 @@ function Navbar() {
     }
   }
   useEffect(()=>{
-    getCatagory()
-    getStyleIdentifier()
+    refGetStyleIdentifier.current()
+    refGetCatagory.current()
   },[])
   useEffect(()=>{
     window.addEventListener("scroll", handleScroll);
@@ -38,9 +40,9 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link to="/" className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Icon sets
-            </a>
+            </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <Link to="/" className="dropdown-item">
                 All icons
@@ -48,9 +50,9 @@ function Navbar() {
             </div>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Catagories
-            </a>
+            </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {
                 dataCatagory?.categories?.map((item,index)=>(
@@ -60,9 +62,9 @@ function Navbar() {
             </div>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Styles
-            </a>
+            </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {
                 dataStyles?.styles?.map((item,index)=>(
