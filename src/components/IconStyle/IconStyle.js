@@ -1,6 +1,6 @@
 import { BottomNavigation, BottomNavigationAction, makeStyles } from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {selectAllIconStyleBlock } from '../../features/iconSlice'
 import { useGetIconStyle } from '../../useIconStyle/useGetIconStyle'
@@ -12,6 +12,8 @@ import BrushIcon from '@material-ui/icons/Brush';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 import './IconStyle.scss'
 import { selectUrlParamsBlock } from '../../features/URLparamaterSlice'
+import { useGetCatagoryIdentifier } from '../../useCatagoryIdentifier/useGetCatagoryIdentifier'
+import BtnGroupItems from './BtnGroupItems/BtnGroupitems'
 const useStyles = makeStyles({
   root: {
     width: 500,
@@ -20,11 +22,13 @@ const useStyles = makeStyles({
 function IconStyle() {
   const [page, setPage] = useState(0)
   const [valueNav, setValueNav] = React.useState(0);
+  const {getCatagoryIdentifier,dataCatagory} = useGetCatagoryIdentifier()
   const UrlParamsBlock = useSelector(selectUrlParamsBlock) 
   const {getIconStyle} = useGetIconStyle()
   const allIconStyleBlock = useSelector(selectAllIconStyleBlock)
   const {loading,allIcons} = allIconStyleBlock
-  const {style} = UrlParamsBlock
+  const {style,catagory} = UrlParamsBlock
+  const refGetCatagoryIdentifier = useRef(getCatagoryIdentifier)
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
@@ -39,9 +43,9 @@ function IconStyle() {
   }
   useEffect(()=>{
    setPage(0)
-  },[valueNav])
+  },[valueNav,catagory,style])
   useEffect(()=>{
-    
+    refGetCatagoryIdentifier.current()
   },[])
   return (
     <div className="IconStyle">
@@ -51,6 +55,17 @@ function IconStyle() {
             <StyledLinearProgress/>
           </div>
         }
+         <div className="btn-group" role="group" aria-label="Basic example">
+            <div className="row">
+              <div className="col-md">
+                {
+                   dataCatagory?.categories?.map((item,index)=>(
+                  <BtnGroupItems key={index} Catagoryidentifier={item.identifier}/>
+                ))
+                }
+              </div>
+            </div>
+          </div>
          <BottomNavigation
           value={valueNav}
           onChange={(event, newValue) => {

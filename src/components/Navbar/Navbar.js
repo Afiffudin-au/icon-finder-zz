@@ -24,7 +24,7 @@ function Navbar() {
   }
   useEffect(()=>{
     refGetStyleIdentifier.current()
-    // refGetCatagoryIdentifier.current()
+    refGetCatagoryIdentifier.current()
   },[])
   useEffect(()=>{
     window.addEventListener("scroll", handleScroll);

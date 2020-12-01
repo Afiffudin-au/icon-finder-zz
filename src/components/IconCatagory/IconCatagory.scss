@@ -54,13 +54,13 @@
 }
 @media (min-width: 768px) {
   @include gridCol(5);
-  @include buttonSizes(10px,16px)
+  @include buttonSizes(10px,14px)
 }
 @media (min-width: 1024px) {
   @include gridCol(6);
-  @include buttonSizes(10px,17px)
+  @include buttonSizes(10px,15px)
 }
 @media (min-width: 1366px) {
   @include gridCol(6);
-  @include buttonSizes(10px,17px)
+  @include buttonSizes(10px,15px)
 }
