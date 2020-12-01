@@ -39,11 +39,11 @@ function IconCatagory() {
     if(valueNav === 0){
       GetIconCatagory(catagory,'',value * 100)
     }else if(valueNav === 1){
-      GetIconCatagory(catagory,'',0,'false','')
+      GetIconCatagory(catagory,'',value * 100,'false','')
     }else if(valueNav === 2){
-      GetIconCatagory(catagory,'',0,'true','')
+      GetIconCatagory(catagory,'',value * 100,'true','')
     }else{
-      GetIconCatagory(catagory,'',0,'','true')
+      GetIconCatagory(catagory,'',value * 100,'','true')
     }
   }
   useEffect(() => {
@@ -80,7 +80,7 @@ function IconCatagory() {
           showLabels
           className={useStyles.root}
           >
-          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0)} label="All icons" icon={<EmojiSymbolsIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory)} label="All icons" icon={<EmojiSymbolsIcon />} />
           <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'false','')} label="Free icons" icon={<MoneyOffIcon />} />
           <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
           <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'','true')} label="Vector" icon={<BrushIcon />} />
