@@ -7,8 +7,19 @@ import './IconCatagory.scss'
 import Pagination from '@material-ui/lab/Pagination'
 import { selectUrlParamsBlock } from '../../features/URLparamaterSlice'
 import { useGetIconCatagory } from '../../useIconCatagory/useGetIconCatagory'
+import { BottomNavigation, BottomNavigationAction, makeStyles } from '@material-ui/core'
+import EmojiSymbolsIcon from '@material-ui/icons/EmojiSymbols';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import BrushIcon from '@material-ui/icons/Brush';
+import MoneyOffIcon from '@material-ui/icons/MoneyOff';
+const useStyles = makeStyles({
+  root: {
+    width: 500,
+  },
+});
 function IconCatagory() {
   const [page, setPage] = useState(0)
+  const [valueNav, setValueNav] = React.useState(0);
   const UrlParamsBlock = useSelector(selectUrlParamsBlock)
   const AllIconCatagoryBlock = useSelector(selectAllIconCatagoryBlock)
   const {GetIconCatagory} = useGetIconCatagory()
@@ -17,13 +28,34 @@ function IconCatagory() {
   const {catagory} = UrlParamsBlock
   const handleChange = (event,value)=>{
     setPage(value)
-    GetIconCatagory(catagory,'',value * 100)
+    if(valueNav === 0){
+      GetIconCatagory(catagory,'',value * 100)
+    }else if(valueNav === 1){
+      GetIconCatagory(catagory,'',0,'false','')
+    }else if(valueNav === 2){
+      GetIconCatagory(catagory,'',0,'true','')
+    }else{
+      GetIconCatagory(catagory,'',0,'','true')
+    }
   }
   useEffect(() => {
    setPage(0)
-  },[catagory])
+  },[catagory,valueNav])
   return (
     <div className="IconCatagory">
+      <BottomNavigation
+          value={valueNav}
+          onChange={(event, newValue) => {
+            setValueNav(newValue);
+          }}
+          showLabels
+          className={useStyles.root}
+          >
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0)} label="All icons" icon={<EmojiSymbolsIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'false','')} label="Free icons" icon={<MoneyOffIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'','true')} label="Vector" icon={<BrushIcon />} />
+        </BottomNavigation>
       {
         loading &&
         <div style={{position : 'sticky',top : '0'}} className="loading">

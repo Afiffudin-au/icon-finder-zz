@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import {addIconCatagory} from '../features/iconSlice'
 export function useGetIconCatagory(){
   const dispatch = useDispatch()
-  const GetIconCatagory = (catagory,style,offsetPage)=>{
+  const GetIconCatagory = (catagory,style,offsetPage,premiumVal,vectorVal)=>{
     const afterSplit = catagory.split('-')
     const queryName = afterSplit[0]
     dispatch(addIconCatagory({
@@ -20,7 +20,9 @@ export function useGetIconCatagory(){
         count : 100,
         category : catagory,
         style : style,
-        offset : offsetPage
+        offset : offsetPage,
+        premium : premiumVal,
+        vector : vectorVal
       }
     }).then(res=>{
       dispatch(addIconCatagory({
