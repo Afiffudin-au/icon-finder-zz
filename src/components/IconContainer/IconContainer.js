@@ -23,8 +23,7 @@ function IconContainer() {
   const [valueNav, setValueNav] = React.useState(0);
   const allIconBlock = useSelector(selectAllIconBlock)
   const {getAllIcons} = useGetIcons()
-  const {loading} = allIconBlock
-  const {allIcons} = allIconBlock
+  const {loading,allIcons} = allIconBlock
   const refGetAllIcons = useRef(getAllIcons)
   const handleChange =  (event, value) => {
     setPage(value)

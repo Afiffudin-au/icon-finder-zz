@@ -10,6 +10,10 @@ export const iconSlice = createSlice({
     allIconCatagoryBlock : {
       allIcons : [],
       loading : null
+    },
+    allIconStyleBlock : {
+      allIcons : [],
+      loading : null
     }
   },
   reducers: {
@@ -28,11 +32,20 @@ export const iconSlice = createSlice({
         return
       }
       state.allIconCatagoryBlock.allIcons = action.payload.dataIconCatagory
+    },
+    addIconStyle : (state,action)=>{
+      state.allIconStyleBlock.loading = action.payload.loading
+      if(action.payload.loading){
+        state.allIconStyleBlock.allIcons = []
+        return
+      }
+      state.allIconStyleBlock.allIcons = action.payload.dataIconStyle
     }
   },
 });
 
-export const { addAllIcon,addIconCatagory} = iconSlice.actions;
+export const { addAllIcon,addIconCatagory,addIconStyle} = iconSlice.actions;
 export const selectAllIconBlock = state => state.icons.allIconBlock;
 export const selectAllIconCatagoryBlock = state=> state.icons.allIconCatagoryBlock
+export const selectAllIconStyleBlock = state => state.icons.allIconStyleBlock
 export default iconSlice.reducer;

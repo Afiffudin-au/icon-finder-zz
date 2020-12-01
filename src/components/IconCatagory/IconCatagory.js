@@ -22,14 +22,18 @@ const useStyles = makeStyles({
 function IconCatagory() {
   const [page, setPage] = useState(0)
   const [valueNav, setValueNav] = React.useState(0);
+
   const UrlParamsBlock = useSelector(selectUrlParamsBlock)
   const AllIconCatagoryBlock = useSelector(selectAllIconCatagoryBlock)
+
   const {GetIconCatagory} = useGetIconCatagory()
   const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
-  const {allIcons} = AllIconCatagoryBlock
-  const {loading} = AllIconCatagoryBlock
-  const {catagory} = UrlParamsBlock
+
+  const {allIcons,loading} = AllIconCatagoryBlock
+  const {catagory,style} = UrlParamsBlock
+
   const refGetStyleIdentifier = useRef(getStyleIdentifier)
+  
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
@@ -47,8 +51,7 @@ function IconCatagory() {
   },[])
   useEffect(() => {
    setPage(0)
-  },[catagory,valueNav])
-  console.log(dataStyles)
+  },[catagory,valueNav,style])
   return (
     <div className="IconCatagory">
        {
@@ -59,16 +62,14 @@ function IconCatagory() {
       }
       <div className="btn-group" role="group" aria-label="Basic example">
         <div className="row">
-          
-            <div className="col-md-12">
-              {
+          <div className="col-md-12">
+            {
 
-              dataStyles?.styles?.map((item,index)=>(
-                <BtnGroupItems key={index} styleIdentifier={item.identifier}/>
-              ))
-              }
-            </div>
-          
+            dataStyles?.styles?.map((item,index)=>(
+              <BtnGroupItems key={index} styleIdentifier={item.identifier}/>
+            ))
+            }
+          </div>
         </div>
       </div>
       <BottomNavigation

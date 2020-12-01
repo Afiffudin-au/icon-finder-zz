@@ -1,0 +1,41 @@
+@mixin gridCol($value) {
+  .IconStyle__grid{
+    grid-template-columns: repeat($value,minmax(0,1fr));
+  }
+}
+.IconStyle{
+  padding: 10px;
+  .MuiButtonBase-root.MuiBottomNavigationAction-root.Mui-selected{
+    color: #0091ea;
+  }
+  .MuiButtonBase-root.MuiBottomNavigationAction-root{
+    outline: 0;
+    color: #78909c;
+  }
+  .IconStyle__grid{
+    display: grid;
+    grid-gap: 0.25rem;
+    gap:0.25rem;
+  }
+  .IconStyle__pagenation{
+    margin:20px auto;
+    .MuiPagination-ul{
+      justify-content: center;
+    }
+  }
+}
+@media (min-width : 320px){
+  @include gridCol(2)
+}
+@media (min-width : 576px){
+  @include gridCol(4)
+}
+@media (min-width : 768px){
+  @include gridCol(5)
+}
+@media (min-width : 1024px){
+  @include gridCol(6)
+}
+@media (min-width : 1366px){
+  @include gridCol(6)
+}

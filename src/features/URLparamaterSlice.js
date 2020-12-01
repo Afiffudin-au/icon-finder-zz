@@ -15,6 +15,7 @@ export const URLparamater = createSlice({
     addParams: (state,action) => {
       state.urlParamsBlock.query = action.payload.query
       state.urlParamsBlock.catagory = action.payload.catagory
+      state.urlParamsBlock.style = action.payload.style
     }
   },
 });
