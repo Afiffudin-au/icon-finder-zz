@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { selectAllIconCatagoryBlock } from '../../features/iconSlice'
 import { StyledLinearProgress } from '../LoadingProgress/LoadingProgress'
@@ -12,6 +12,8 @@ import EmojiSymbolsIcon from '@material-ui/icons/EmojiSymbols';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import BrushIcon from '@material-ui/icons/Brush';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
+import { useGetStyleIdentifier } from '../../useStyleIdentifier/useGetStyleIdentifier'
+import BtnGroupItems from './BtnGroupItems/BtnGroupItems'
 const useStyles = makeStyles({
   root: {
     width: 500,
@@ -23,9 +25,11 @@ function IconCatagory() {
   const UrlParamsBlock = useSelector(selectUrlParamsBlock)
   const AllIconCatagoryBlock = useSelector(selectAllIconCatagoryBlock)
   const {GetIconCatagory} = useGetIconCatagory()
+  const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
   const {allIcons} = AllIconCatagoryBlock
   const {loading} = AllIconCatagoryBlock
   const {catagory} = UrlParamsBlock
+  const refGetStyleIdentifier = useRef(getStyleIdentifier)
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
@@ -39,10 +43,34 @@ function IconCatagory() {
     }
   }
   useEffect(() => {
+    refGetStyleIdentifier.current()
+  },[])
+  useEffect(() => {
    setPage(0)
   },[catagory,valueNav])
+  console.log(dataStyles)
   return (
     <div className="IconCatagory">
+       {
+        loading &&
+        <div style={{position : 'sticky',top : '0'}} className="loading">
+          <StyledLinearProgress/>
+        </div>
+      }
+      <div className="btn-group" role="group" aria-label="Basic example">
+        <div className="row">
+          
+            <div className="col-md-12">
+              {
+
+              dataStyles?.styles?.map((item,index)=>(
+                <BtnGroupItems key={index} styleIdentifier={item.identifier}/>
+              ))
+              }
+            </div>
+          
+        </div>
+      </div>
       <BottomNavigation
           value={valueNav}
           onChange={(event, newValue) => {
@@ -56,12 +84,6 @@ function IconCatagory() {
           <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
           <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'','true')} label="Vector" icon={<BrushIcon />} />
         </BottomNavigation>
-      {
-        loading &&
-        <div style={{position : 'sticky',top : '0'}} className="loading">
-          <StyledLinearProgress/>
-        </div>
-      }
       <div className="IconCatagory__grid">
         {
           allIcons.icons?.map((item,index)=>(

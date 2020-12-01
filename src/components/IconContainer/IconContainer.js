@@ -46,6 +46,12 @@ function IconContainer() {
   },[])
   return (
     <div className="IconsContainer">
+        {
+          loading && 
+          <div style={{position: 'sticky',top:'0'}} className="loading">
+            <StyledLinearProgress/>
+          </div>
+        }
         <BottomNavigation
           value={valueNav}
           onChange={(event, newValue) => {
@@ -59,12 +65,6 @@ function IconContainer() {
           <BottomNavigationAction onClick={()=>getAllIcons(0,'true')} label="Premium" icon={<AttachMoneyIcon />} />
           <BottomNavigationAction onClick={()=>getAllIcons(0,'','true')} label="Vector" icon={<BrushIcon />} />
         </BottomNavigation>
-      {
-        loading && 
-        <div style={{position: 'sticky',top:'0'}} className="loading">
-          <StyledLinearProgress/>
-        </div>
-      }
       <div className="IconsContainer__grid">
         {
           allIcons.icons?.map((item,index)=>(
