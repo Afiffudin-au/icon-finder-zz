@@ -23,8 +23,8 @@ function Navbar() {
     }
   }
   useEffect(()=>{
-    refGetStyleIdentifier.current()
-    refGetCatagoryIdentifier.current()
+    // refGetStyleIdentifier.current()
+    // refGetCatagoryIdentifier.current()
   },[])
   useEffect(()=>{
     window.addEventListener("scroll", handleScroll);
