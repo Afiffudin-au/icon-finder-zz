@@ -50,7 +50,6 @@ function SearchIconResult() {
   },[])
   useEffect(() => {
    setPage(0)
-   console.log("rubah")
   },[catagory,valueNav,style,query])
   return (
     <div className="searchIconResult">
