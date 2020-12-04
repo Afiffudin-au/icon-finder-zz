@@ -9,12 +9,16 @@ import Home from './components/Home/Home';
 import IconCatagory from './components/IconCatagory/IconCatagory';
 import Navbar from './components/Navbar/Navbar';
 import IconStyle from './components/IconStyle/IconStyle';
+import SearchIconResult from './components/SearchIconResult/SearchIconResult';
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar/>
         <Switch>
+          <Route path="/icon-search">
+            <SearchIconResult/>
+          </Route>
           <Route path="/icon-style">
             <IconStyle/>
           </Route>

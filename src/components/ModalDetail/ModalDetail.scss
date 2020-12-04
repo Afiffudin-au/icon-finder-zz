@@ -4,6 +4,14 @@
     align-items: $align;
   }
 }
+.closeButton{
+  margin-bottom: 5px;
+  border: 2px solid #039be5 !important;
+  outline: 0 !important;
+  .close_icon{
+    color: white;
+  }
+}
 .cardIconDetailContent{
   display: flex;
   align-items: center;

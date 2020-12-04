@@ -7,8 +7,6 @@ export const URLparamater = createSlice({
       query : '',
       catagory : '',
       style : '',
-      vector : '',
-      premium : ''
     }
   },
   reducers: {

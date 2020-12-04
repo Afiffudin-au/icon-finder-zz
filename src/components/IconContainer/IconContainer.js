@@ -41,7 +41,7 @@ function IconContainer() {
     setPage(0)
   },[valueNav])
   useEffect(()=>{
-    refGetAllIcons.current(0)
+    // refGetAllIcons.current(0)
   },[])
   return (
     <div className="IconsContainer">
@@ -76,7 +76,6 @@ function IconContainer() {
           ))
         }
       </div>
-      {/* <CardIcon/> */}
       {
         allIcons.icons && <div className="IconsContainer__pagenation">
         <Pagination color="secondary" variant="outlined" count={100} page={page} onChange={handleChange} />

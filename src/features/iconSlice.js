@@ -14,6 +14,10 @@ export const iconSlice = createSlice({
     allIconStyleBlock : {
       allIcons : [],
       loading : null
+    },
+    allIconSearchResultBlock : {
+      allIcons : [],
+      loading : null
     }
   },
   reducers: {
@@ -40,12 +44,21 @@ export const iconSlice = createSlice({
         return
       }
       state.allIconStyleBlock.allIcons = action.payload.dataIconStyle
+    },
+    addIconSearchResult : (state,action)=>{
+      state.allIconSearchResultBlock.loading = action.payload.loading
+      if(action.payload.loading){
+        state.allIconSearchResultBlock.allIcons = []
+        return
+      }
+      state.allIconSearchResultBlock.allIcons = action.payload.dataIconResults
     }
   },
 });
 
-export const { addAllIcon,addIconCatagory,addIconStyle} = iconSlice.actions;
+export const { addAllIcon,addIconCatagory,addIconStyle,addIconSearchResult} = iconSlice.actions;
 export const selectAllIconBlock = state => state.icons.allIconBlock;
 export const selectAllIconCatagoryBlock = state=> state.icons.allIconCatagoryBlock
 export const selectAllIconStyleBlock = state => state.icons.allIconStyleBlock
+export const selectAllIconSearchResultBlock = state => state.icons.allIconSearchResultBlock
 export default iconSlice.reducer;
