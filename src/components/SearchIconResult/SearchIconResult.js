@@ -50,6 +50,7 @@ function SearchIconResult() {
   },[])
   useEffect(() => {
    setPage(0)
+   console.log("rubah")
   },[catagory,valueNav,style,query])
   return (
     <div className="searchIconResult">
@@ -59,22 +60,27 @@ function SearchIconResult() {
             <StyledLinearProgress/>
           </div>
         }
-         <div className="btn-group" role="group" aria-label="Basic example">
+        {
+          !loading && 
+          <div className="btn-group" role="group" aria-label="Basic example">
             <div className="row">
               <div className="col-md">
                 {
                   dataCatagory?.categories?.map((item,index)=>(
-                  <BtnGroupItems key={index} identifier={item.identifier}/>
+                  <BtnGroupItems key={index} catagoryBool={true} identifier={item.identifier}/>
                 ))
                 }
                 {
                   dataStyles?.styles?.map((item,index)=>(
-                  <BtnGroupItems key={index} identifier={item.identifier}/>
+                  <BtnGroupItems key={index} catagoryBool={false} identifier={item.identifier}/>
                 ))
                 }
               </div>
             </div>
           </div>
+
+        }
+         
         <BottomNavigation
           value={valueNav}
           onChange={(event, newValue) => {

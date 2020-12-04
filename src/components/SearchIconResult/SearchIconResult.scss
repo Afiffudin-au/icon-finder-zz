@@ -3,13 +3,12 @@
     grid-template-columns: repeat($value, minmax(0, 1fr));
   }
 }
-@mixin buttonSizes($value,$fontValue){
+@mixin buttonSizes($fontValue){
   .searchIconResult{
     .btn-group{
       margin-bottom: 20px;
       button{
         font-size: $fontValue;
-        padding: $value;
         margin: 5px;
         border-radius: 5px !important;
       }
@@ -51,21 +50,21 @@
 }
 @media (min-width: 320px) {
   @include gridCol(2);
-  @include buttonSizes(5px,14px)
+  @include buttonSizes(14px)
 }
 @media (min-width: 576px) {
   @include gridCol(4);
-  @include buttonSizes(5px,14px)
+  @include buttonSizes(14px)
 }
 @media (min-width: 768px) {
   @include gridCol(5);
-  @include buttonSizes(10px,14px)
+  @include buttonSizes(14px)
 }
 @media (min-width: 1024px) {
   @include gridCol(6);
-  @include buttonSizes(10px,15px)
+  @include buttonSizes(15px)
 }
 @media (min-width: 1366px) {
   @include gridCol(6);
-  @include buttonSizes(10px,15px)
+  @include buttonSizes(15px)
 }
