@@ -10,11 +10,18 @@ import {LightTooltip} from '../LightTooltip/LightTooltip'
 import { useDownloadIcon } from '../../useDownload/useDownloadIcon';
 import { IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {addParams} from '../../features/URLparamaterSlice'
+import { useGetSearch } from '../../useSearch/useGetSearch';
 function ModalDetail({id,rasterSizes,handleCloseProp}) {
   const classes = useStylesModal()
   const [previewUrl,setPreviewUrl] = useState(rasterSizes[7]?.formats[0]?.preview_url)
   const {iconDetails,loading,getIconDetail} = useGetIconDetail()
   const {downloadIcon} = useDownloadIcon()
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const {getSearch} = useGetSearch()
   useEffect(()=>{
     if(id === null || id === '' || id === undefined) return
     getIconDetail(id)
@@ -25,6 +32,13 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
   const handleDownlaod = (url)=>{
     const splitUrl = url.split('https://api.iconfinder.com/v4/icons/')
     downloadIcon(splitUrl[1])
+  }
+  const handleSearchByTag = (tag)=>{
+    dispatch(addParams({
+      query : tag
+    }))
+    getSearch(tag)
+    history.push('/icon-search')
   }
   return (
     <div className={classes.paper}>
@@ -81,7 +95,7 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
               {
                 iconDetails?.tags?.map((tag,index)=>(
                   <LightTooltip key={index} title={`Search for ${tag} icon`} placement="top" arrow>
-                  <button>{tag}</button>
+                  <button onClick={()=>handleSearchByTag(tag)}>{tag}</button>
                 </LightTooltip>
                 ))
               }
