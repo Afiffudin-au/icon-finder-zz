@@ -5,7 +5,7 @@ export function useGetCatagoryIdentifier(){
   const getCatagoryIdentifier = ()=>{
     Axios({
       method : 'GET',
-      url : 'http://localhost:5000/categories',
+      url : 'https://proxy-icon-api.herokuapp.com/categories',
       headers:{
         Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
       },

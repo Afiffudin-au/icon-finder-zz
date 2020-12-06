@@ -6,7 +6,7 @@ export function useGetStyleIdentifier(){
   const getStyleIdentifier = ()=>{
     Axios({
       method : 'GET',
-      url : 'http://localhost:5000/styles',
+      url : 'https://proxy-icon-api.herokuapp.com/styles',
       headers:{
         Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
       },

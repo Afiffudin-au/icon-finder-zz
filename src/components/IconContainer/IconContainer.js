@@ -41,7 +41,7 @@ function IconContainer() {
     setPage(0)
   },[valueNav])
   useEffect(()=>{
-    // refGetAllIcons.current(0)
+    refGetAllIcons.current(0)
   },[])
   return (
     <div className="IconsContainer">

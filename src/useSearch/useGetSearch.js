@@ -8,7 +8,7 @@ export function useGetSearch(){
       loading : true,
     }))
     Axios({
-      url : 'http://localhost:5000/icons/search',
+      url : 'https://proxy-icon-api.herokuapp.com/icons/search',
       headers:{
         Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
       },

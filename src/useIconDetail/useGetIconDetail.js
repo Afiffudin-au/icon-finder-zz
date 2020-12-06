@@ -7,7 +7,7 @@ export function useGetIconDetail(){
     setLoading(true)
     Axios({
       method : 'GET',
-      url : `http://localhost:5000/icons/${pathParamId}`,
+      url : `https://proxy-icon-api.herokuapp.com/icons/${pathParamId}`,
       headers:{
         Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
       },

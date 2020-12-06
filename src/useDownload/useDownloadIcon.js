@@ -4,7 +4,7 @@ export function useDownloadIcon(){
   const downloadIcon = (pathParamDownload)=>{
     Axios({
       method : 'GET',
-      url : `http://localhost:5000/icons/${pathParamDownload}`,
+      url : `https://proxy-icon-api.herokuapp.com/icons/${pathParamDownload}`,
       responseType: 'blob',
       headers:{
         Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`

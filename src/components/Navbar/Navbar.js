@@ -1,7 +1,5 @@
 import React, {useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { selectUrlParamsBlock } from '../../features/URLparamaterSlice'
 import { useGetCatagoryIdentifier } from '../../useCatagoryIdentifier/useGetCatagoryIdentifier'
 import { useGetStyleIdentifier } from '../../useStyleIdentifier/useGetStyleIdentifier'
 import CatagoriesDropDownItem from './CatagoriesDropDownItem/CatagoriesDropDownItem'
@@ -25,8 +23,8 @@ function Navbar() {
     }
   }
   useEffect(()=>{
-    // refGetStyleIdentifier.current()
-    // refGetCatagoryIdentifier.current()
+    refGetStyleIdentifier.current()
+    refGetCatagoryIdentifier.current()
   },[])
   useEffect(()=>{
     window.addEventListener("scroll", handleScroll);
