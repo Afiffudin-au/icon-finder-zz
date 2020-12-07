@@ -47,7 +47,7 @@ function IconContainer() {
     <div className="IconsContainer">
         {
           loading && 
-          <div style={{position: 'sticky',top:'0'}} className="loading">
+          <div style={{position: 'sticky',top:'0',marginBottom : '5px'}} className="loading">
             <StyledLinearProgress/>
           </div>
         }

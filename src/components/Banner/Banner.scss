@@ -8,3 +8,11 @@
     color: #37474f;
   }
 }
+@media (min-width: 320px) and (max-width: 767.98px) { 
+  .banner{
+    .banner_title{
+      font-size: 16px;
+      font-family: math;
+    }
+  }
+}
