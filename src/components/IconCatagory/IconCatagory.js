@@ -106,6 +106,7 @@ function IconCatagory() {
         <Pagination color="secondary" variant="outlined" count={100} page={page} onChange={handleChange} />
       </div>
       }
+      
     </div>
   )
 }

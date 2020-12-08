@@ -13,6 +13,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import BrushIcon from '@material-ui/icons/Brush';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 import { makeStyles } from '@material-ui/core'
+import Footer from '../Footer/Footer'
 const useStyles = makeStyles({
   root: {
     width: 500,
@@ -80,6 +81,9 @@ function IconContainer() {
         allIcons.icons && <div className="IconsContainer__pagenation">
         <Pagination color="secondary" variant="outlined" count={100} page={page} onChange={handleChange} />
       </div>
+      }
+      {
+        allIcons.icons && <Footer/>
       }
     </div>
   )
