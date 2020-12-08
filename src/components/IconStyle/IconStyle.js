@@ -43,12 +43,8 @@ function IconStyle() {
   }
   useEffect(()=>{
     setValueNav(0)
-  },[style])
-
-  useEffect(()=>{
-    setValueNav(0)
-  },[catagory])
-
+  },[style,catagory])
+  
   useEffect(()=>{
    setPage(0)
   },[valueNav,catagory,style])

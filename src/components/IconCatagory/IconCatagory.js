@@ -52,11 +52,7 @@ function IconCatagory() {
 
   useEffect(()=>{
     setValueNav(0)
-  },[catagory])
-
-  useEffect(()=>{
-    setValueNav(0)
-  },[style])
+  },[catagory,style])
 
   useEffect(() => {
    setPage(0)
