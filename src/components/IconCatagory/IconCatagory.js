@@ -37,24 +37,33 @@ function IconCatagory() {
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
-      GetIconCatagory(catagory,'',value * 100)
+      GetIconCatagory(catagory,style,value * 100)
     }else if(valueNav === 1){
-      GetIconCatagory(catagory,'',value * 100,'false','')
+      GetIconCatagory(catagory,style,value * 100,'false','')
     }else if(valueNav === 2){
-      GetIconCatagory(catagory,'',value * 100,'true','')
+      GetIconCatagory(catagory,style,value * 100,'true','')
     }else{
-      GetIconCatagory(catagory,'',value * 100,'','true')
+      GetIconCatagory(catagory,style,value * 100,'','true')
     }
   }
   useEffect(() => {
     refGetStyleIdentifier.current()
   },[])
+
+  useEffect(()=>{
+    setValueNav(0)
+  },[catagory])
+
+  useEffect(()=>{
+    setValueNav(0)
+  },[style])
+
   useEffect(() => {
    setPage(0)
   },[catagory,valueNav,style])
   return (
     <div className="IconCatagory">
-       {
+      {
         loading &&
         <div style={{position : 'sticky',top : '0'}} className="loading">
           <StyledLinearProgress/>
@@ -64,7 +73,6 @@ function IconCatagory() {
         <div className="row">
           <div className="col-md-12">
             {
-
             dataStyles?.styles?.map((item,index)=>(
               <BtnGroupItems key={index} styleIdentifier={item.identifier}/>
             ))
@@ -80,10 +88,10 @@ function IconCatagory() {
           showLabels
           className={useStyles.root}
           >
-          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory)} label="All icons" icon={<EmojiSymbolsIcon />} />
-          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'false','')} label="Free icons" icon={<MoneyOffIcon />} />
-          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
-          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,'',0,'','true')} label="Vector" icon={<BrushIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,style)} label="All icons" icon={<EmojiSymbolsIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,style,0,'false','')} label="Free icons" icon={<MoneyOffIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,style,0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
+          <BottomNavigationAction onClick={()=>GetIconCatagory(catagory,style,0,'','true')} label="Vector" icon={<BrushIcon />} />
         </BottomNavigation>
       <div className="IconCatagory__grid">
         {

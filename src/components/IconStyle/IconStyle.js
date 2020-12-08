@@ -32,15 +32,23 @@ function IconStyle() {
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
-      getIconStyle(style,'',value * 100)
+      getIconStyle(style,catagory,value * 100)
     }else if(valueNav === 1){
-     getIconStyle(style,'',value * 100,'false','')
+     getIconStyle(style,catagory,value * 100,'false','')
     }else if(valueNav === 2){
-      getIconStyle(style,'',value * 100,'true','')
+      getIconStyle(style,catagory,value * 100,'true','')
     }else{
-      getIconStyle(style,'',value * 100,'','true')
+      getIconStyle(style,catagory,value * 100,'','true')
     }
   }
+  useEffect(()=>{
+    setValueNav(0)
+  },[style])
+
+  useEffect(()=>{
+    setValueNav(0)
+  },[catagory])
+
   useEffect(()=>{
    setPage(0)
   },[valueNav,catagory,style])
@@ -74,10 +82,10 @@ function IconStyle() {
           showLabels
           className={useStyles.root}
           >
-          <BottomNavigationAction onClick={()=>getIconStyle(style)} label="All icons" icon={<EmojiSymbolsIcon />} />
-          <BottomNavigationAction onClick={()=>getIconStyle(style,'',0,'false','')} label="Free icons" icon={<MoneyOffIcon />} />
-          <BottomNavigationAction onClick={()=>getIconStyle(style,'',0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
-          <BottomNavigationAction onClick={()=>getIconStyle(style,'',0,'','true')} label="Vector" icon={<BrushIcon />} />
+          <BottomNavigationAction onClick={()=>getIconStyle(style,catagory)} label="All icons" icon={<EmojiSymbolsIcon />} />
+          <BottomNavigationAction onClick={()=>getIconStyle(style,catagory,0,'false','')} label="Free icons" icon={<MoneyOffIcon />} />
+          <BottomNavigationAction onClick={()=>getIconStyle(style,catagory,0,'true','')} label="Premium" icon={<AttachMoneyIcon />} />
+          <BottomNavigationAction onClick={()=>getIconStyle(style,catagory,0,'','true')} label="Vector" icon={<BrushIcon />} />
         </BottomNavigation>
       <div className="IconStyle__grid">
         {

@@ -10,12 +10,16 @@ import IconCatagory from './components/IconCatagory/IconCatagory';
 import Navbar from './components/Navbar/Navbar';
 import IconStyle from './components/IconStyle/IconStyle';
 import SearchIconResult from './components/SearchIconResult/SearchIconResult';
+import IconAll from './components/IconAll/IconAll';
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar/>
         <Switch>
+          <Route path="/icon-all">
+            <IconAll/>
+          </Route>
           <Route path="/icon-search">
             <SearchIconResult/>
           </Route>

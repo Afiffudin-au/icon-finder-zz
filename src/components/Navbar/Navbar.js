@@ -1,6 +1,7 @@
 import React, {useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useGetCatagoryIdentifier } from '../../useCatagoryIdentifier/useGetCatagoryIdentifier'
+import { useGetIconsAll } from '../../useiconsAll/useGetIconsAll'
 import { useGetStyleIdentifier } from '../../useStyleIdentifier/useGetStyleIdentifier'
 import CatagoriesDropDownItem from './CatagoriesDropDownItem/CatagoriesDropDownItem'
 import './Navbar.scss'
@@ -11,6 +12,7 @@ function Navbar() {
   const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
   const refGetCatagoryIdentifier= useRef(getCatagoryIdentifier)
   const refGetStyleIdentifier = useRef(getStyleIdentifier)
+  const {getIconsAll} = useGetIconsAll()
   const handleScroll = ()=>{
     const navbar = document.querySelector(".navbar")
     const inputSearch = document.querySelector('.navbar input')
@@ -44,7 +46,7 @@ function Navbar() {
               Icon sets
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link to="/" className="dropdown-item">
+              <Link onClick={()=>getIconsAll('')} to="/icon-all" className="dropdown-item">
                 All icons
               </Link>
             </div>
