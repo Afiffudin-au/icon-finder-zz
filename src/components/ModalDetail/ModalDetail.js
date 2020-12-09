@@ -18,7 +18,7 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
   const classes = useStylesModal()
   const [previewUrl,setPreviewUrl] = useState(rasterSizes[7]?.formats[0]?.preview_url)
   const {iconDetails,loading,getIconDetail} = useGetIconDetail()
-  const {downloadIcon} = useDownloadIcon()
+  const {downloadIcon,loadingDownload} = useDownloadIcon()
   const history = useHistory()
   const dispatch = useDispatch()
   const {getSearch} = useGetSearch()
@@ -46,6 +46,12 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
         loading &&  <div style={{marginBottom : '5px'}} className="loading">
         <StyledLinearProgress/>
       </div>
+      }
+      {
+        loadingDownload && 
+        <div style={{marginBottom : '5px'}} className="loading">
+          <StyledLinearProgress/>
+        </div>
       }
      <IconButton onClick={handleCloseProp} className="closeButton">
        <CloseIcon className="close_icon"/>
