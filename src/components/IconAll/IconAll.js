@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 function IconAll() {
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [valueNav, setValueNav] = React.useState(0);
   
   const allIconBlock = useSelector(selectAllIconBlock)
@@ -62,7 +62,7 @@ function IconAll() {
     refGetStyleIden.current()
   },[])
   useEffect(()=>{
-    setPage(0)
+    setPage(1)
     setValueNav(0)
   },[query])
   return (

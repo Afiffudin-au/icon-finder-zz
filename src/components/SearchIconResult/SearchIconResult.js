@@ -24,7 +24,7 @@ function SearchIconResult() {
   const iconResultBlock = useSelector(selectAllIconSearchResultBlock)
   const UrlParamsBlock = useSelector(selectUrlParamsBlock)
   const {allIcons,loading} = iconResultBlock
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [valueNav, setValueNav] = React.useState(0);
   const {getSearch} = useGetSearch()
   const {catagory,style,query} = UrlParamsBlock
@@ -52,7 +52,7 @@ function SearchIconResult() {
     setValueNav(0)
   },[style,catagory])
   useEffect(() => {
-   setPage(0)
+   setPage(1)
   },[catagory,valueNav,style,query])
   return (
     <div className="searchIconResult">

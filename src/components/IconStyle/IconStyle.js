@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 function IconStyle() {
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [valueNav, setValueNav] = React.useState(0);
   const {getCatagoryIdentifier,dataCatagory} = useGetCatagoryIdentifier()
   const UrlParamsBlock = useSelector(selectUrlParamsBlock) 
@@ -46,7 +46,7 @@ function IconStyle() {
   },[style,catagory])
   
   useEffect(()=>{
-   setPage(0)
+   setPage(1)
   },[valueNav,catagory,style])
   useEffect(()=>{
     refGetCatagoryIdentifier.current()
