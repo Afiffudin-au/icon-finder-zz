@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useGetIconDetail } from '../../useIconDetail/useGetIconDetail';
 import { useStylesModal } from '../../useMakeStyles/useStylesModal';
 import {StyledLinearProgress} from '../LoadingProgress/LoadingProgress'
@@ -22,9 +22,10 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
   const history = useHistory()
   const dispatch = useDispatch()
   const {getSearch} = useGetSearch()
+  const refGetIconDetail = useRef(getIconDetail)
   useEffect(()=>{
     if(id === null || id === '' || id === undefined) return
-    getIconDetail(id)
+    refGetIconDetail.current(id)
   },[id])
   const handlePreview = (url)=>{
     setPreviewUrl(url)
