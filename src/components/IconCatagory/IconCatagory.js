@@ -37,13 +37,13 @@ function IconCatagory() {
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
-      GetIconCatagory(catagory,style,value * 100)
+      GetIconCatagory(catagory,style,value * 100 - 1 + 1 - 100)
     }else if(valueNav === 1){
-      GetIconCatagory(catagory,style,value * 100,'false','')
+      GetIconCatagory(catagory,style,value * 100 - 1 + 1 - 100,'false','')
     }else if(valueNav === 2){
-      GetIconCatagory(catagory,style,value * 100,'true','')
+      GetIconCatagory(catagory,style,value * 100 - 1 + 1 - 100,'true','')
     }else{
-      GetIconCatagory(catagory,style,value * 100,'','true')
+      GetIconCatagory(catagory,style,value * 100 - 1 + 1 - 100,'','true')
     }
   }
   useEffect(() => {

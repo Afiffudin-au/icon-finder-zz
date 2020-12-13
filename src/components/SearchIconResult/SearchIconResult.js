@@ -35,13 +35,13 @@ function SearchIconResult() {
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
-      getSearch(query,catagory,style,value * 100)
+      getSearch(query,catagory,style,value * 100 - 1 + 1 - 100)
     }else if(valueNav === 1){
-      getSearch(query,catagory,style,value * 100,'false')
+      getSearch(query,catagory,style,value * 100 - 1 + 1 - 100,'false')
     }else if(valueNav === 2){
-      getSearch(query,catagory,style,value * 100,'true')
+      getSearch(query,catagory,style,value * 100 - 1 + 1 - 100,'true')
     }else{
-      getSearch(query,catagory,style,value * 100,'','true')
+      getSearch(query,catagory,style,value * 100 - 1 + 1 - 100,'','true')
     }
   }
   useEffect(()=>{

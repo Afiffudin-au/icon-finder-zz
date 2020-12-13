@@ -48,13 +48,13 @@ function IconAll() {
     setPage(value)
   
     if(valueNav === 0){
-      getIconsAll(fixQuery,'',value * 100)
+      getIconsAll(fixQuery,'',value * 100 - 1 + 1 - 100)
     }else if(valueNav === 1){
-      getIconsAll(fixQuery,'',value * 100,'false')
+      getIconsAll(fixQuery,'',value * 100 - 1 + 1 - 100,'false')
     }else if(valueNav === 2){
-      getIconsAll(fixQuery,'',value * 100,'true')
+      getIconsAll(fixQuery,'',value * 100 - 1 + 1 - 100,'true')
     }else {
-      getIconsAll(fixQuery,'',value * 100,'','true')
+      getIconsAll(fixQuery,'',value * 100 - 1 + 1 - 100,'','true')
     }
   };
   useEffect(()=>{

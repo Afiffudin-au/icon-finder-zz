@@ -32,13 +32,13 @@ function IconStyle() {
   const handleChange = (event,value)=>{
     setPage(value)
     if(valueNav === 0){
-      getIconStyle(style,catagory,value * 100)
+      getIconStyle(style,catagory,value * 100 - 1 + 1 - 100)
     }else if(valueNav === 1){
-     getIconStyle(style,catagory,value * 100,'false','')
+     getIconStyle(style,catagory,value * 100 - 1 + 1 - 100,'false','')
     }else if(valueNav === 2){
-      getIconStyle(style,catagory,value * 100,'true','')
+      getIconStyle(style,catagory,value * 100 - 1 + 1 - 100,'true','')
     }else{
-      getIconStyle(style,catagory,value * 100,'','true')
+      getIconStyle(style,catagory,value * 100 - 1 + 1 - 100,'','true')
     }
   }
   useEffect(()=>{

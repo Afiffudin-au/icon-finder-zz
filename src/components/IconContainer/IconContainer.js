@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 function IconContainer() {
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [valueNav, setValueNav] = React.useState(0);
   const allIconBlock = useSelector(selectAllIconBlock)
   const {getAllIcons} = useGetIcons()
@@ -28,18 +28,18 @@ function IconContainer() {
   const refGetAllIcons = useRef(getAllIcons)
   const handleChange =  (event, value) => {
     setPage(value)
-    if(valueNav === 0){
-      getAllIcons(value * 100)
+    if(valueNav === 1){
+      getAllIcons(value * 100 - 1 + 1 - 100)
     }else if(valueNav === 1){
-      getAllIcons(value * 100,'false')
+      getAllIcons(value * 100 - 1 + 1 - 100,'false')
     }else if(valueNav === 2){
-      getAllIcons(value * 100,'true')
+      getAllIcons(value * 100 - 1 + 1 - 100,'true')
     }else {
-      getAllIcons(value * 100,'','true')
+      getAllIcons(value * 100 - 1 + 1 - 100,'','true')
     }
   };
   useEffect(()=>{
-    setPage(0)
+    setPage(1)
   },[valueNav])
   useEffect(()=>{
     refGetAllIcons.current(0)
@@ -79,7 +79,12 @@ function IconContainer() {
       </div>
       {
         allIcons.icons && <div className="IconsContainer__pagenation">
-        <Pagination color="secondary" variant="outlined" count={100} page={page} onChange={handleChange} />
+        <Pagination 
+        color="secondary" 
+        variant="outlined" 
+        count={100} 
+        page={page} 
+        onChange={handleChange} />
       </div>
       }
       {
