@@ -82,7 +82,7 @@ function IconContainer() {
         <Pagination 
         color="secondary" 
         variant="outlined" 
-        count={100} 
+        count={Math.floor(allIcons.total_count / 100)} 
         page={page} 
         onChange={handleChange} />
       </div>

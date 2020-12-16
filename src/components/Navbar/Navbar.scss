@@ -10,6 +10,7 @@
       .nav-link{
         font-size: 16px;
         color: rgb(82, 82, 82);
+        cursor: pointer;
       }
       .dropdown-menu{
         background-color: #263238;
@@ -31,7 +32,7 @@
   .navbar-nav{
     .nav-item{
       .nav-link{
-        color: #8ca1b4;
+        color: #8ca1b4; 
       }
       .dropdown-menu{
         background-color: #263238;
@@ -62,6 +63,25 @@
       background-color: white !important;
       .navbar-toggler-icon{
         background-color: white !important;
+      }
+    }
+    .navbar-nav{
+      .nav-item.dropdown:nth-of-type(1){     
+        .dropdown-menu.show{       
+          height: max-content;       
+        }
+      }
+      .nav-item.dropdown:nth-of-type(2){     
+        .dropdown-menu.show{
+          height: 300px;
+          overflow-y: scroll;
+        }
+      }
+      .nav-item.dropdown:nth-of-type(3){     
+        .dropdown-menu.show{
+          height: 300px;
+          overflow-y: scroll;
+        }
       }
     }
   }

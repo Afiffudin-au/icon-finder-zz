@@ -23,35 +23,19 @@ export const iconSlice = createSlice({
   reducers: {
     addAllIcon: (state,action) => {
      state.allIconBlock.loading = action.payload.loading
-     if(action.payload.loading){
-       state.allIconBlock.allIcons = []
-       return
-     }
-     state.allIconBlock.allIcons = action.payload.dataIcons
+     state.allIconBlock.allIcons = action.payload.dataIcons || []
     },
     addIconCatagory : (state,action)=>{
       state.allIconCatagoryBlock.loading = action.payload.loading
-      if(action.payload.loading){
-        state.allIconCatagoryBlock.allIcons = []
-        return
-      }
-      state.allIconCatagoryBlock.allIcons = action.payload.dataIconCatagory
+      state.allIconCatagoryBlock.allIcons = action.payload.dataIconCatagory || []
     },
     addIconStyle : (state,action)=>{
       state.allIconStyleBlock.loading = action.payload.loading
-      if(action.payload.loading){
-        state.allIconStyleBlock.allIcons = []
-        return
-      }
-      state.allIconStyleBlock.allIcons = action.payload.dataIconStyle
+      state.allIconStyleBlock.allIcons = action.payload.dataIconStyle || []
     },
     addIconSearchResult : (state,action)=>{
       state.allIconSearchResultBlock.loading = action.payload.loading
-      if(action.payload.loading){
-        state.allIconSearchResultBlock.allIcons = []
-        return
-      }
-      state.allIconSearchResultBlock.allIcons = action.payload.dataIconResults
+      state.allIconSearchResultBlock.allIcons = action.payload.dataIconResults || []
     }
   },
 });

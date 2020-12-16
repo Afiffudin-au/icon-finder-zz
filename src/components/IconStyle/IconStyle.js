@@ -97,7 +97,7 @@ function IconStyle() {
       </div>
       {
         allIcons.icons && <div className="IconStyle__pagenation">
-        <Pagination color="secondary" variant="outlined" count={100} page={page} onChange={handleChange} />
+        <Pagination color="secondary" variant="outlined" count={Math.floor(allIcons.total_count / 100)} page={page} onChange={handleChange} />
       </div>
       }
     </div>

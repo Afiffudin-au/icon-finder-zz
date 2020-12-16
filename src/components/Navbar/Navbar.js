@@ -42,9 +42,9 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item dropdown">
-            <Link to="/" className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Icon sets
-            </Link>
+            </p>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <Link onClick={()=>getIconsAll('')} to="/icon-all" className="dropdown-item">
                 All icons
@@ -52,9 +52,9 @@ function Navbar() {
             </div>
           </li>
           <li className="nav-item dropdown">
-            <Link to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Catagories
-            </Link>
+            </p>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {
                 dataCatagory?.categories?.map((item,index)=>(
@@ -64,9 +64,9 @@ function Navbar() {
             </div>
           </li>
           <li className="nav-item dropdown">
-            <Link to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Styles
-            </Link>
+            </p>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {
                 dataStyles?.styles?.map((item,index)=>(
