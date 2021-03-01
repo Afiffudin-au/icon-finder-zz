@@ -3,11 +3,11 @@
     grid-template-columns: repeat($value, minmax(0, 1fr));
   }
 }
-@mixin buttonSizes($fontValue){
-  .iconAll{
-    .btn-group{
+@mixin buttonSizes($fontValue) {
+  .iconAll {
+    .btn-group {
       margin-bottom: 20px;
-      button{
+      button {
         font-size: $fontValue;
         margin: 5px;
         border-radius: 5px !important;
@@ -35,10 +35,10 @@
       justify-content: center;
     }
   }
-  .btn-group{
+  .btn-group {
     overflow-x: hidden;
     margin-bottom: 20px;
-    button{
+    button {
       margin: 5px;
       border-radius: 5px !important;
       padding-top: 2px;
@@ -50,21 +50,21 @@
 }
 @media (min-width: 320px) {
   @include gridCol(2);
-  @include buttonSizes(14px)
+  @include buttonSizes(14px);
 }
 @media (min-width: 576px) {
   @include gridCol(4);
-  @include buttonSizes(14px)
+  @include buttonSizes(14px);
 }
 @media (min-width: 768px) {
   @include gridCol(5);
-  @include buttonSizes(14px)
+  @include buttonSizes(14px);
 }
 @media (min-width: 1024px) {
   @include gridCol(6);
-  @include buttonSizes(15px)
+  @include buttonSizes(15px);
 }
 @media (min-width: 1366px) {
   @include gridCol(6);
-  @include buttonSizes(15px)
+  @include buttonSizes(15px);
 }

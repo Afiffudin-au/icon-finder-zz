@@ -1,67 +1,67 @@
-@mixin flexLayout($flexDirection,$align) {
-  .cardIconDetailContent{
+@mixin flexLayout($flexDirection, $align) {
+  .cardIconDetailContent {
     flex-direction: $flexDirection;
     align-items: $align;
   }
 }
-.closeButton{
+.closeButton {
   margin-bottom: 5px;
   border: 2px solid #039be5 !important;
   outline: 0 !important;
-  .close_icon{
+  .close_icon {
     color: white;
   }
 }
-.cardIconDetailContent{
+.cardIconDetailContent {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  .cardIcon__img{
+  .cardIcon__img {
     margin-right: 10px;
   }
-  .cardIcon_detail h1{
+  .cardIcon_detail h1 {
     font-size: 18px;
     color: #cad3dc;
     margin-bottom: 8px;
   }
-  .cardIcon_detail p{
+  .cardIcon_detail p {
     font-size: 15px;
     color: #cad3dc;
   }
-  .cardIcon_detail{
+  .cardIcon_detail {
     margin-right: 10px;
-    .cardIcon_decs{
+    .cardIcon_decs {
       display: flex;
       align-items: center;
       margin-bottom: 5px;
-      .check{
+      .check {
         color: #039be5;
         margin-right: 5px;
         font-size: 15px;
       }
     }
   }
-  .cardIcon_moreContent{
-    .premium{
+  .cardIcon_moreContent {
+    .premium {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
-      .moneyIcon{
-        color: #cad3dc
-      }
-      .premium_desc{
-        margin-left: 5px;
-        font-size: 15px;
-        color: #cad3dc
-      }
-    }
-    .searchByTag{
-      display: flex;
-      align-items: center;
-      .offerIcon{
+      .moneyIcon {
         color: #cad3dc;
       }
-      .buttonTag button{
+      .premium_desc {
+        margin-left: 5px;
+        font-size: 15px;
+        color: #cad3dc;
+      }
+    }
+    .searchByTag {
+      display: flex;
+      align-items: center;
+      .offerIcon {
+        color: #cad3dc;
+      }
+      .buttonTag button {
         margin-left: 5px;
         border: 1.5px solid #039be5;
         color: #cad3dc;
@@ -70,17 +70,16 @@
         margin-right: 5px;
         margin-bottom: 5px;
       }
-      .buttonTag button:hover{
-        transition: all .3s ease;
+      .buttonTag button:hover {
+        transition: all 0.3s ease;
         background-color: #039be5;
         color: white;
       }
     }
-
   }
 }
-.preview-container{
-  .preview{
+.preview-container {
+  .preview {
     margin-left: 5px;
     border: 1.5px solid #039be5;
     color: #cad3dc;
@@ -88,29 +87,29 @@
     border-radius: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
-    &:hover{
-      transition: all .3s ease;
+    &:hover {
+      transition: all 0.3s ease;
       background-color: #039be5;
       color: white;
     }
-    a{
+    a {
       text-decoration: none;
       color: white;
     }
   }
 }
-@media (min-width : 320px){
-  @include flexLayout(column,flex-start)
+@media (min-width: 320px) {
+  @include flexLayout(column, flex-start);
 }
-@media (min-width : 576px){
-  @include flexLayout(column,flex-start)
+@media (min-width: 576px) {
+  @include flexLayout(column, flex-start);
 }
-@media (min-width : 768px){
-  @include flexLayout(column,flex-start)
+@media (min-width: 768px) {
+  @include flexLayout(column, flex-start);
 }
-@media (min-width : 1024px){
-  @include flexLayout(row,center)
+@media (min-width: 1024px) {
+  @include flexLayout(row, center);
 }
-@media (min-width : 1366px){
-  @include flexLayout(row,center)
+@media (min-width: 1366px) {
+  @include flexLayout(row, center);
 }

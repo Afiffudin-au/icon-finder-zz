@@ -1,16 +1,15 @@
-.navbar{
-  .form-inline{
+.navbar {
+  .form-inline {
     width: 100%;
-    input{
-      
+    input {
       width: 80%;
     }
   }
 }
 @media (min-width: 320px) and (max-width: 1024px) {
-  .navbar{
-    .form-inline{
-      input{
+  .navbar {
+    .form-inline {
+      input {
         width: 100%;
       }
     }

@@ -1,41 +1,37 @@
-import React from 'react';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import Home from './components/Home/Home';
-import IconCatagory from './components/IconCatagory/IconCatagory';
-import Navbar from './components/Navbar/Navbar';
-import IconStyle from './components/IconStyle/IconStyle';
-import SearchIconResult from './components/SearchIconResult/SearchIconResult';
-import IconAll from './components/IconAll/IconAll';
+import React from 'react'
+import './App.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from './components/Home/Home'
+import IconCatagory from './components/IconCatagory/IconCatagory'
+import Navbar from './components/Navbar/Navbar'
+import IconStyle from './components/IconStyle/IconStyle'
+import SearchIconResult from './components/SearchIconResult/SearchIconResult'
+import IconAll from './components/IconAll/IconAll'
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar/>
+      <div className='App'>
+        <Navbar />
         <Switch>
-          <Route path="/icon-all">
-            <IconAll/>
+          <Route path='/icon-all'>
+            <IconAll />
           </Route>
-          <Route path="/icon-search">
-            <SearchIconResult/>
+          <Route path='/icon-search'>
+            <SearchIconResult />
           </Route>
-          <Route path="/icon-style">
-            <IconStyle/>
+          <Route path='/icon-style'>
+            <IconStyle />
           </Route>
-          <Route path="/icon-catagory">
-            <IconCatagory/>
+          <Route path='/icon-catagory'>
+            <IconCatagory />
           </Route>
-          <Route path="/">
-            <Home/>
+          <Route path='/'>
+            <Home />
           </Route>
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

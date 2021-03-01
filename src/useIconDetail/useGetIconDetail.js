@@ -1,27 +1,29 @@
-import Axios from "axios"
-import { useState } from "react"
-export function useGetIconDetail(){
-  const [iconDetails,setIconDetails] = useState([])
-  const [loading,setLoading] = useState(true)
-  const getIconDetail = (pathParamId)=>{
+import Axios from 'axios'
+import { useState } from 'react'
+export function useGetIconDetail() {
+  const [iconDetails, setIconDetails] = useState([])
+  const [loading, setLoading] = useState(true)
+  const getIconDetail = (pathParamId) => {
     setLoading(true)
     Axios({
-      method : 'GET',
-      url : `https://proxy-icon-api.herokuapp.com/icons/${pathParamId}`,
-      headers:{
-        Authorization : `Bearer ${process.env.REACT_APP_API_KEY}`
+      method: 'GET',
+      url: `https://proxy-icon-api.herokuapp.com/icons/${pathParamId}`,
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
       },
-    }).then(res=>{
-     setIconDetails(res.data)
-     setLoading(false)
-    }).catch(err=>{
-      setLoading(false)
-      alert(err)
     })
+      .then((res) => {
+        setIconDetails(res.data)
+        setLoading(false)
+      })
+      .catch((err) => {
+        setLoading(false)
+        alert(err)
+      })
   }
-  return{
+  return {
     iconDetails,
     loading,
-    getIconDetail
+    getIconDetail,
   }
 }

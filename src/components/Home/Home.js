@@ -4,8 +4,8 @@ import IconContainer from '../IconContainer/IconContainer'
 function Home() {
   return (
     <>
-      <Banner/>
-      <IconContainer/>
+      <Banner />
+      <IconContainer />
     </>
   )
 }

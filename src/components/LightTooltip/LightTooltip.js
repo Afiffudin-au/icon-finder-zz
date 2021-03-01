@@ -1,4 +1,4 @@
-const { Tooltip, withStyles } = require("@material-ui/core");
+const { Tooltip, withStyles } = require('@material-ui/core')
 
 export const LightTooltip = withStyles((theme) => ({
   arrow: {
@@ -10,4 +10,4 @@ export const LightTooltip = withStyles((theme) => ({
     boxShadow: theme.shadows[1],
     fontSize: 15,
   },
-}))(Tooltip);
+}))(Tooltip)
