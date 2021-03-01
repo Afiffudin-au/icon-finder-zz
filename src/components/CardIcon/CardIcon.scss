@@ -1,12 +1,16 @@
-.CardIcon{
+.CardIcon {
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
   cursor: pointer;
-  img{
+  .skeleton {
+    display: flex;
+    justify-content: center;
+  }
+  img {
     margin: auto;
   }
-  &:hover{
+  &:hover {
     background-color: #dde2e6;
     box-shadow: 1px 1px 3px 1px #eeeeee;
   }

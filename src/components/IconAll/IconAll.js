@@ -46,7 +46,6 @@ function IconAll() {
   }
   const handleChange =  (event, value) => {
     setPage(value)
-  
     if(valueNav === 0){
       getIconsAll(fixQuery,'',value * 100 - 1 + 1 - 100)
     }else if(valueNav === 1){

@@ -6,8 +6,11 @@ import LazyLoad from 'react-lazyload';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Backdrop, Modal } from '@material-ui/core';
 import ModalDetail from '../ModalDetail/ModalDetail';
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 function CardIcon({id,isPremium,rasterSizes}) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
+  const [isLoad,setIsLoad] = React.useState(false)
+  const [display,setDisplay] = React.useState('none')
   const handleOpen = () => {
     setOpen(true);
   };
@@ -17,17 +20,37 @@ function CardIcon({id,isPremium,rasterSizes}) {
   const handleCloseProp = ()=>{
     setOpen(false);
   }
+  const ModalDetailRef = React.forwardRef((props, ref) => (
+    <>
+      { props.children}
+    </>
+  ));
+  const handleLoad = ()=>{
+    setIsLoad(true)
+    setDisplay('block')
+  }
+  const ref = React.createRef()
   return (
 
     <div className="CardIcon">
       {
-        isPremium && 
+        isLoad && isPremium && 
         <Tooltip title="Premium" arrow>
           <AttachMoneyIcon style={{color : blueGrey[500],fontSize : '26px'}}/>
         </Tooltip>
+      
       }
-      <LazyLoad height={200} width={'100%'}>
-        <img className="CardIconSet_icon"  onClick={handleOpen} src={rasterSizes[6]?.formats[0]?.preview_url} alt={rasterSizes[6]?.formats[0]?.preview_url}/>
+      {
+        !isLoad && (
+          <div className="skeleton">
+            <SkeletonTheme  color="#cfd8dc" highlightColor="#b0bec5">
+              <Skeleton count={1} width={128} height={128} duration={0.8}/>
+            </SkeletonTheme>
+          </div>
+        )
+      }
+      <LazyLoad height={200} offset={-70} width={'100%'}>
+        <img style={{display : display}} className="CardIconSet_icon" onLoad={handleLoad} onClick={handleOpen} src={rasterSizes[6]?.formats[0]?.preview_url} alt={rasterSizes[6]?.formats[0]?.preview_url}/>
       </LazyLoad>
       <Modal
         open={open}
@@ -41,7 +64,9 @@ function CardIcon({id,isPremium,rasterSizes}) {
         }}
         style={{overflowY : 'scroll'}}
       >
-       <ModalDetail id={id} rasterSizes={rasterSizes} handleCloseProp={handleCloseProp}/>
+       <ModalDetailRef ref={ref}>
+        <ModalDetail id={id} rasterSizes={rasterSizes} handleCloseProp={handleCloseProp}/>
+       </ModalDetailRef>
       </Modal>
     </div>
   )

@@ -7,6 +7,7 @@ import CatagoriesDropDownItem from './CatagoriesDropDownItem/CatagoriesDropDownI
 import './Navbar.scss'
 import NavbarSearch from './NavbarSearch/NavbarSearch'
 import StyleDropDownItem from './StyleDropDownItem/StyleDropDownItem'
+import MenuIcon from '@material-ui/icons/Menu';
 function Navbar() {
   const {getCatagoryIdentifier,dataCatagory} = useGetCatagoryIdentifier()
   const {getStyleIdentifier,dataStyles} = useGetStyleIdentifier()
@@ -37,7 +38,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light">
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
+        <MenuIcon className="menuIcon"/>
       </button>
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">

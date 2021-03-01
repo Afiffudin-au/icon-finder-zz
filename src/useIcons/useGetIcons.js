@@ -4,6 +4,7 @@ import {addAllIcon} from '../features/iconSlice'
 export function useGetIcons(){
   const dispatch = useDispatch()
   const getAllIcons = (valueOffset,premiumVal,vectorVal)=>{
+    console.log(valueOffset)
     dispatch(addAllIcon({
       loading : true
     }))
