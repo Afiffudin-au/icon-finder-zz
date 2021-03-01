@@ -14,9 +14,14 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {addParams} from '../../features/URLparamaterSlice'
 import { useGetSearch } from '../../useSearch/useGetSearch';
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 function ModalDetail({id,rasterSizes,handleCloseProp}) {
+  const [isLoad,setIsLoad] = React.useState(false)
+  const [display,setDisplay] = React.useState('none')
   const classes = useStylesModal()
   const [previewUrl,setPreviewUrl] = useState(rasterSizes[7]?.formats[0]?.preview_url)
+  const [rasterWidth,setRasterWidth] = useState(256)
+  const [rasterHeight,setRasterHeight] = useState(256)
   const {iconDetails,loading,getIconDetail} = useGetIconDetail()
   const {downloadIcon,loadingDownload} = useDownloadIcon()
   const history = useHistory()
@@ -27,7 +32,11 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
     if(id === null || id === '' || id === undefined) return
     refGetIconDetail.current(id)
   },[id])
-  const handlePreview = (url)=>{
+  const handlePreview = (url,width,height)=>{
+    setRasterWidth(width)
+    setRasterHeight(height)
+    setDisplay('none')
+    setIsLoad(false)
     setPreviewUrl(url)
   }
   const handleDownlaod = (url)=>{
@@ -40,6 +49,10 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
     }))
     getSearch(tag)
     history.push('/icon-search')
+  }
+  const handleLoad = ()=>{
+    setIsLoad(true)
+    setDisplay('block')
   }
   return (
     <div className={classes.paper}>
@@ -59,7 +72,14 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
      </IconButton>
       <div className="cardIconDetailContent">
         <div className="cardIcon__img">
-          <img src={'' || previewUrl } alt={previewUrl || ''}/>
+          {
+            !isLoad &&
+            <SkeletonTheme  color="#cfd8dc" highlightColor="#b0bec5">
+              <Skeleton count={1} width={rasterWidth} height={rasterHeight} duration={0.8}/>
+            </SkeletonTheme>
+          }
+        
+          <img style={{display : display}} onLoad={handleLoad} src={'' || previewUrl } alt={previewUrl || ''}/>
         </div>
         <div className="cardIcon_detail">
           {
@@ -112,10 +132,10 @@ function ModalDetail({id,rasterSizes,handleCloseProp}) {
       </div>
       <div className="preview-container">
         {
-          iconDetails?.raster_sizes?.map(items=>(
-            items.formats.map((item,index)=>(
-            <button key={index} href={item.preview_url} onClick={()=>handlePreview(item.preview_url)} className="preview">
-               Preview {items.size_width} x {items.size_height}
+          iconDetails?.raster_sizes?.map(rasters=>(
+            rasters.formats.map((item,index)=>(
+            <button key={index} href={item.preview_url} onClick={()=>handlePreview(item.preview_url,rasters.size_width,rasters.size_height)} className="preview">
+               Preview {rasters.size_width} x {rasters.size_height}
             </button>
             ))
           ))
