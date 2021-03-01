@@ -8,6 +8,7 @@ function Footer() {
         Github :{' '}
         <a
           target='_blank'
+          rel='noreferrer'
           href='https://github.com/Afiffudin-au/icon-finder-zz'>
           See Project
         </a>
