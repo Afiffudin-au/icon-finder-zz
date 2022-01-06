@@ -1,7 +1,7 @@
 ## Desc
 this project is named icon finder zz, this is old react js project which i think is best. This is taken from the icon-finder API by using Proxy. Without a proxy, this application cannot make API calls. This application will search for the type of icon according to your needs such as 3d, cartoon, flat, abstract and many more. You can download the icon with the condition that the icon must be free. This application is made using React.
 
--Free icons
+-Free icons<br />
 -Premium icons
 -Vector
 -Icon sets
