@@ -15,9 +15,6 @@ this project is named icon finder zz, this is old react js project which i think
 -Simple UI UX<br />
 -Fast performance<br />
 
-## Note
-Most of my projects are of the private type, but for now and so on I will make my projects public freely.
-
 Project site : https://icons-finder-zz.netlify.app/
 
 Proxy server for API call : https://github.com/Afiffudin-au/Proxy-server-Icon-Finder-API
