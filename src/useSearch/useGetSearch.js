@@ -17,7 +17,7 @@ export function useGetSearch() {
       })
     )
     Axios({
-      url: 'https://proxy-icon-api.herokuapp.com/icons/search',
+      url: process.env.REACT_APP_PROXY + '/icons/search',
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
       },
